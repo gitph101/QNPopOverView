@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'QNPopOverView_Example' do
+  pod 'QNPopOverView', :path => '../'
+
+  target 'QNPopOverView_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
