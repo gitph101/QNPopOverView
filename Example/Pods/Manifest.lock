@@ -1,0 +1,23 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - QNPopOverView (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - QNPopOverView (from `../`)
+
+EXTERNAL SOURCES:
+  QNPopOverView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  QNPopOverView: 8b9c147492a7c75f2de5e8dd37f71e140e27cfab
+
+PODFILE CHECKSUM: 7d45a17afbeb3232eceff899085470ef68362d0b
+
+COCOAPODS: 1.2.0

@@ -1,0 +1,22 @@
+{
+  "name": "QNPopOverView",
+  "version": "0.1.0",
+  "summary": "A short description of QNPopOverView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/gitph101/QNPopOverView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "gitph101": "850867354@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/gitph101/QNPopOverView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "QNPopOverView/Classes/**/*"
+}

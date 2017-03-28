@@ -1,0 +1,6 @@
+framework module QNPopOverView {
+  umbrella header "QNPopOverView-umbrella.h"
+
+  export *
+  module * { export * }
+}
