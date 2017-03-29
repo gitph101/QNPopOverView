@@ -33,7 +33,6 @@
 - (QNContentView *)contentView{
     if (!_contentView) {
         _contentView = [[QNContentView alloc] initWithFrame:[[self view] bounds]];
-        _contentView.backgroundColor = [UIColor lightGrayColor];
     }
     return _contentView;
 }

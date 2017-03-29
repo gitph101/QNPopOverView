@@ -8,7 +8,7 @@
 
 #import "QNContentView.h"
 #import "QNPopOverView.h"
-
+#import "Masonry.h"
 @interface QNContentView ()<QNPopOverViewDelegate,QNPopOverViewDataSource>
 
 @property (nonatomic, strong) QNPopOverView *popOverView;
@@ -16,8 +16,6 @@
 @property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) UIButton *likeButton;
 
-@property (nonatomic, strong) UIButton *insertButton;
-@property (nonatomic, strong) UIButton *deleteButton;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
@@ -37,11 +35,22 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    self.closeButton.frame = CGRectMake(24, 174, 48, 48);
-    self.likeButton.frame = CGRectMake(CGRectGetWidth([self bounds]) - 24 - 48, 174, 48, 48);
-    self.insertButton.frame = CGRectMake(24, 400, 98, 48);
-    self.deleteButton.frame = CGRectMake(CGRectGetWidth([self bounds]) - 24 - 98, 400, 98, 48);
-    self.popOverView.frame = CGRectMake(CGRectGetWidth([self bounds]) / 2. - 167/2., 124, 167, 167);
+//    self.closeButton.frame = CGRectMake(24, 174, 48, 48);
+//    self.likeButton.frame = CGRectMake(CGRectGetWidth([self bounds]) - 24 - 48, 174, 48, 48);
+//    self.popOverView.frame = CGRectMake(0, 50, self.frame.size.width, self.frame.size.width);
+    
+    [self.popOverView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(50, 10, 10, 10));
+    }];
+    
+    [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    
+    
 }
 
 #pragma mark - private
@@ -51,13 +60,9 @@
     self.popOverView = [QNPopOverView new];
     self.closeButton = [UIButton new];
     self.likeButton = [UIButton new];
-    self.insertButton = [UIButton new];
-    self.deleteButton = [UIButton new];
     
     [self addSubview:[self closeButton]];
     [self addSubview:[self likeButton]];
-    [self addSubview:[self insertButton]];
-    [self addSubview:[self deleteButton]];
     [self addSubview:[self popOverView]];
 }
 
@@ -74,18 +79,7 @@
     self.closeButton.layer.cornerRadius = 48/2.;
     self.closeButton.layer.borderWidth = 1.f;
     self.closeButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    [[self closeButton] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [[self closeButton] setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
-    [[self closeButton] setTitle:@"L" forState:UIControlStateNormal];
-    [[self closeButton] addTarget:self action:@selector(didClickClose:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.insertButton.titleLabel.font = [UIFont systemFontOfSize:24];
-    self.insertButton.layer.cornerRadius = 48/2.;
-    self.insertButton.layer.borderWidth = 1.f;
-    self.insertButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    [[self insertButton] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [[self insertButton] setTitle:@"insert" forState:UIControlStateNormal];
-    [[self insertButton] addTarget:self action:@selector(didClickInsert:) forControlEvents:UIControlEventTouchUpInside];
     
     self.likeButton.titleLabel.font = [UIFont systemFontOfSize:24];
     self.likeButton.layer.cornerRadius = 48/2.;
@@ -96,13 +90,6 @@
     [[self likeButton] setTitle:@"R" forState:UIControlStateNormal];
     [[self likeButton] addTarget:self action:@selector(didClickLike:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.deleteButton.titleLabel.font = [UIFont systemFontOfSize:24];
-    self.deleteButton.layer.cornerRadius = 48/2.;
-    self.deleteButton.layer.borderWidth = 1.f;
-    self.deleteButton.layer.borderColor = [[UIColor redColor] CGColor];
-    [[self deleteButton] setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [[self deleteButton] setTitle:@"delete" forState:UIControlStateNormal];
-    [[self deleteButton] addTarget:self action:@selector(didClickDelete:) forControlEvents:UIControlEventTouchUpInside];
     
     [[self popOverView] reloadData];
 }
@@ -118,7 +105,7 @@
 }
 
 - (CGSize)popupOverView:(QNPopOverView *)popupOverView sizeForItemAtIndex:(NSUInteger)nIndex;{
-    return CGSizeMake(200, 200);
+    return CGSizeMake(self.frame.size.width -50, self.frame.size.width-50);
 }
 
 - (UIView *)popupOverView:(QNPopOverView *)popupOverView viewForItemAtIndex:(NSUInteger)nIndex reusingView:(UIView *)view;{
@@ -127,16 +114,11 @@
     if (!view) {
         view = [UIView new];
     }
-    view.layer.cornerRadius = 4;
-    view.layer.borderWidth = 2;
-    view.layer.masksToBounds = YES;
-    view.layer.borderColor = [[UIColor whiteColor] CGColor];
-//    view.backgroundColor = [UIColor colorWithRed:(arc4random()%255)/255.f green:(arc4random()%255)/255.f blue:(arc4random()%255)/255.f alpha:1];
-    view.backgroundColor = [UIColor clearColor];
+    view.backgroundColor = [UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f];
     
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:view.bounds];
-    imageView.image = [UIImage imageNamed:@"1.png"];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width)];
+    imageView.image = [UIImage imageNamed:@"3.png"];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
     [view addSubview:imageView];
     
     return view;

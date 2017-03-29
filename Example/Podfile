@@ -2,7 +2,8 @@ use_frameworks!
 
 target 'QNPopOverView_Example' do
   pod 'QNPopOverView', :path => '../'
-
+  pod 'Masonry'
+  
   target 'QNPopOverView_Tests' do
     inherit! :search_paths
 

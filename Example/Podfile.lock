@@ -4,10 +4,12 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
+  - Masonry (1.0.2)
   - QNPopOverView (0.1.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
+  - Masonry
   - QNPopOverView (from `../`)
 
 EXTERNAL SOURCES:
@@ -16,8 +18,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   QNPopOverView: 8b9c147492a7c75f2de5e8dd37f71e140e27cfab
 
-PODFILE CHECKSUM: 7d45a17afbeb3232eceff899085470ef68362d0b
+PODFILE CHECKSUM: 4a5146a0cfcf015cc3fea0f1e6b3d382b2484d3d
 
 COCOAPODS: 1.2.0
