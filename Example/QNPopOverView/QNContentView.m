@@ -9,6 +9,8 @@
 #import "QNContentView.h"
 #import "QNPopOverView.h"
 #import "Masonry.h"
+#import "QNPhoneView.h"
+
 @interface QNContentView ()<QNPopOverViewDelegate,QNPopOverViewDataSource>
 
 @property (nonatomic, strong) QNPopOverView *popOverView;
@@ -34,22 +36,22 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
-//    self.closeButton.frame = CGRectMake(24, 174, 48, 48);
-//    self.likeButton.frame = CGRectMake(CGRectGetWidth([self bounds]) - 24 - 48, 174, 48, 48);
-//    self.popOverView.frame = CGRectMake(0, 50, self.frame.size.width, self.frame.size.width);
-    
     [self.popOverView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(50, 10, 10, 10));
+        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(0, 10, 120, 0));
     }];
     
     [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.size.mas_equalTo(CGSizeMake(80, 40));
+        make.left.equalTo(self.mas_left).with.offset(40);
+        make.top.equalTo(self.popOverView.mas_bottom).with.offset(40);
     }];
+
     [self.likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.size.mas_equalTo(CGSizeMake(80, 40));
+        make.top.equalTo(self.popOverView.mas_bottom).with.offset(40);
+        make.right.equalTo(self.mas_right).with.offset(-40);
     }];
-    
+
     
 }
 
@@ -69,27 +71,27 @@
 - (void)_configurateSubviewsDefault{
     
     self.dataSource = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", nil];
-    
     self.popOverView.delegate = self;
     self.popOverView.dataSource = self;
     self.popOverView.maxTranslation = CGSizeMake(160, 160);
     self.popOverView.itemViewRotateAngle = 5/180.f * M_PI;
     
-    self.closeButton.titleLabel.font = [UIFont systemFontOfSize:24];
-    self.closeButton.layer.cornerRadius = 48/2.;
-    self.closeButton.layer.borderWidth = 1.f;
-    self.closeButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    
-    
-    self.likeButton.titleLabel.font = [UIFont systemFontOfSize:24];
-    self.likeButton.layer.cornerRadius = 48/2.;
-    self.likeButton.layer.borderWidth = 1.f;
-    self.likeButton.layer.borderColor = [[UIColor redColor] CGColor];
-    [[self likeButton] setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    self.closeButton.titleLabel.font = [UIFont systemFontOfSize:20];
+    self.closeButton.layer.cornerRadius = 6.;
+    self.closeButton.layer.borderWidth = 0.5f;
+    self.closeButton.layer.borderColor = [[UIColor colorWithRed:0.87 green:0.87 blue:0.87 alpha:1] CGColor];
+    [[self closeButton] setTitleColor:[UIColor colorWithRed:0.56 green:0.56 blue:0.56 alpha:1] forState:UIControlStateNormal];
+    [[self closeButton] setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
+    [[self closeButton] setTitle:@"X" forState:UIControlStateNormal];
+
+    self.likeButton.titleLabel.font = [UIFont systemFontOfSize:20];
+    self.likeButton.layer.cornerRadius = 6.;
+    self.likeButton.layer.borderWidth = 0.5f;
+    self.likeButton.layer.borderColor = [[UIColor colorWithRed:0.87 green:0.87 blue:0.87 alpha:1] CGColor];
+    [[self likeButton] setTitleColor:[UIColor colorWithRed:0.56 green:0.56 blue:0.56 alpha:1] forState:UIControlStateNormal];
     [[self likeButton] setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
-    [[self likeButton] setTitle:@"R" forState:UIControlStateNormal];
+    [[self likeButton] setTitle:@"OK" forState:UIControlStateNormal];
     [[self likeButton] addTarget:self action:@selector(didClickLike:) forControlEvents:UIControlEventTouchUpInside];
-    
     
     [[self popOverView] reloadData];
 }
@@ -105,22 +107,14 @@
 }
 
 - (CGSize)popupOverView:(QNPopOverView *)popupOverView sizeForItemAtIndex:(NSUInteger)nIndex;{
-    return CGSizeMake(self.frame.size.width -50, self.frame.size.width-50);
+    return CGSizeMake(self.frame.size.width -20, self.frame.size.height - 120);
 }
 
 - (UIView *)popupOverView:(QNPopOverView *)popupOverView viewForItemAtIndex:(NSUInteger)nIndex reusingView:(UIView *)view;{
-    
-    
     if (!view) {
-        view = [UIView new];
+        view = [[QNPhoneView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width-20, self.frame.size.height-120)];
     }
-    view.backgroundColor = [UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f];
-    
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width)];
-    imageView.image = [UIImage imageNamed:@"3.png"];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [view addSubview:imageView];
-    
+    view.backgroundColor = [UIColor whiteColor];
     return view;
 }
 

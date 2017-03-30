@@ -25,6 +25,7 @@
 		C6A1D25EC88C840FAE96324A /* Pods_QNPopOverView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F906619E66CF46F6CD2B83 /* Pods_QNPopOverView_Example.framework */; };
 		CC0A2C6D2649FF24A9F1E659 /* Pods_QNPopOverView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E49304D538B228B26C706C /* Pods_QNPopOverView_Tests.framework */; };
 		E2B3A6B21E8A540700623AFD /* QNContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A6B11E8A540700623AFD /* QNContentView.m */; };
+		E2B3A6B51E8CABF500623AFD /* QNPhoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A6B41E8CABF500623AFD /* QNPhoneView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		DDC61CCCFB3F564B36F612B0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E2B3A6B01E8A540700623AFD /* QNContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNContentView.h; sourceTree = "<group>"; };
 		E2B3A6B11E8A540700623AFD /* QNContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNContentView.m; sourceTree = "<group>"; };
+		E2B3A6B31E8CABF500623AFD /* QNPhoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPhoneView.h; sourceTree = "<group>"; };
+		E2B3A6B41E8CABF500623AFD /* QNPhoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNPhoneView.m; sourceTree = "<group>"; };
 		E3E49304D538B228B26C706C /* Pods_QNPopOverView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QNPopOverView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A4D15A0E319776C1C346A5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +145,8 @@
 				6003F5A6195388D20070C39A /* QNViewController.m */,
 				E2B3A6B01E8A540700623AFD /* QNContentView.h */,
 				E2B3A6B11E8A540700623AFD /* QNContentView.m */,
+				E2B3A6B31E8CABF500623AFD /* QNPhoneView.h */,
+				E2B3A6B41E8CABF500623AFD /* QNPhoneView.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -403,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B3A6B51E8CABF500623AFD /* QNPhoneView.m in Sources */,
 				6003F59E195388D20070C39A /* QNAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* QNViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
