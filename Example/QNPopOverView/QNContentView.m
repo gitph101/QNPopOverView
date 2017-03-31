@@ -70,7 +70,7 @@
 
 - (void)_configurateSubviewsDefault{
     
-    self.dataSource = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", nil];
+    self.dataSource = [NSMutableArray arrayWithObjects:@"", @"", @"", @"",@"",@"",@"",@"", nil];
     self.popOverView.delegate = self;
     self.popOverView.dataSource = self;
     self.popOverView.maxTranslation = CGSizeMake(160, 160);
@@ -103,7 +103,7 @@
 }
 
 - (NSInteger)numberOfVisibleItemsInPopupOverViewView:(QNPopOverView *)popupOverView;{
-    return 3;
+    return 4;
 }
 
 - (CGSize)popupOverView:(QNPopOverView *)popupOverView sizeForItemAtIndex:(NSUInteger)nIndex;{
